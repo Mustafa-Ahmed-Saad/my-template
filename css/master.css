@@ -1,0 +1,1016 @@
+:root {
+  /* كدا احنا بنحط الكاستم فاريابول بتاعتنا في الروت علشان نبقي نستخدمها كمتغير */
+  --main-color: #24e344;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  /* width: 1170px; مينفعش نديلو عرض كدا ثابت بل العرض هياخدو علي حسب الشاشة من الميديا كويري تحت خالص */
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+/* start seting box */
+.setting-box {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  background-color: #fff;
+  width: 200px;
+  z-index: 1002;
+  min-height: 100vh; /* علشان ياخد الطول كلو علي حسب حجم الشاشة */
+  transition: 0.3s;
+  border: 1px solid rgb(116, 116, 116);
+}
+.setting-box.open {
+  left: 0;
+  box-shadow: 1px 0 13px 0 var(--main-color);
+}
+.setting-box .toggle-setting {
+  position: absolute;
+  right: -33px;
+  top: 115px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-top: 1px solid rgb(116, 116, 116);
+  border-right: 1px solid rgb(116, 116, 116);
+  border-bottom: 1px solid rgb(116, 116, 116);
+  border-left: 2px solid #fff;
+  border-radius: 0 3px 3px 0;
+}
+.setting-box .toggle-setting .fa-cog {
+  width: 30px;
+  padding: 8px 0;
+}
+.setting-box .options-box {
+  padding: 10px;
+  text-align: center;
+  background-color: #eee;
+  margin: 10px;
+}
+.setting-box .options-box h4 {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+.setting-box .options-box ul.colors-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 15px 0 0;
+}
+.setting-box .options-box ul.colors-list li {
+  width: 24px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid transparent; /* كدا البوردر هيكون شفاف */
+}
+.setting-box .options-box ul.colors-list li.active {
+  transform: translate(0, -6px);
+  transition: transform 0.3s;
+  border: 2px solid black;
+}
+.setting-box .options-box ul.colors-list li:first-child {
+  background-color: #24e344;
+}
+.setting-box .options-box ul.colors-list li:nth-child(2) {
+  background-color: #e91e63;
+}
+.setting-box .options-box ul.colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+.setting-box .options-box ul.colors-list li:nth-child(4) {
+  background-color: #03a9f4;
+}
+.setting-box .options-box ul.colors-list li:nth-child(5) {
+  background-color: #4caf50;
+}
+.setting-box .options-box .yes,
+.setting-box .options-box .no {
+  display: inline-block;
+  width: 50px;
+  background-color: #363636;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 4px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.setting-box .options-box span.active {
+  opacity: 1;
+}
+.setting-box .reset-options {
+  background-color: #f44336;
+  display: block;
+  border: none;
+  width: 178px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+/* end seting box */
+
+/* start nav bullets */
+.nav-bullets {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 1000;
+}
+.nav-bullets .bullet {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--main-color);
+  margin: 20px auto;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative; /* علشان كل بوليت يكون جنبها التوول تيب بتاعتها */
+  transition: 0.3s;
+}
+.nav-bullets .bullet:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.nav-bullets .bullet:hover {
+  background-color: var(--main-color);
+}
+.nav-bullets .bullet .tooltip {
+  background-color: var(--main-color);
+  width: 120px;
+  color: #fff;
+  padding: 8px 10px;
+  position: absolute;
+  right: 32px;
+  top: -10px;
+  text-align: center;
+  cursor: pointer;
+  pointer-events: none; /* علشان اليوزر ميفدرش يدزس عليها لان البوليت اللي جنبها لما يتداس عليها هيروح يدور علي كاستم اتربيوت و ينزل لغاية عندو لكن هنا لو انت دوست كليك هيطلع مشاكل لانو لما يدور علي الكاستم اتربيوت مش هيلاقية و كدا غانت بتخلي الكليك او البوينتر ايفنت ب نل */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.5s linear;
+}
+.nav-bullets .bullet .tooltip::before {
+  content: '';
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--main-color);
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* end nav bullets */
+
+/* stat landing page */
+.landing-page {
+  min-height: 100vh; /* يعني اقل طول انها تاخد طول الشاشة الحالية كلها و كمان علشان لو المحتوي زاد الصفحة متقفش عن طول معين بل تتمدد عادي  */
+  background-image: url('../images/1.jpg');
+  background-size: cover; /* علشان تملا الشاشبة تعتي و لو خيا كبيرة تتحجم علي خسب الشاشة */
+  position: relative;
+  /* لو عملت الخاصية دي من غير ما احدد ان الترانسيشن دا هيكون للباك جراوند فقط كل ما يجي يغير الصورة هتلاقية بيطلع خلفية بيضة لمدة جزء من الثانية او بيحصل لاج خفيف كدا و لو انا مش عاوز الكلام دا يحصل لازم احدد الترانسيشن يكون للباك جراوند اميج فقط */
+  transition: background-image 2s; /* علشان لما نغير الصورة او يحصل اي حاجة في العنصر دا تحصل بنعومة */
+}
+.landing-page .overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.landing-page .container {
+  z-index: 1000; /* كدا اي حاجة في اللاندينج بيج في الكونتينر بتاعها لما تظهر هتغطي علي اي حاجة تانية زي البوليت او الكلام او اي حاجة بس زي ما احنا عارفين علشان ادي زد انكس لازم ادي بوزيشن ولازم يكون فية بوزيشن فهدي بوزيشن ريليتف لاني فقط البوزيشن هدية علان الزد انكس يظهر مش علشان احرك العنصر */
+  position: relative;
+}
+.landing-page .header-area {
+  position: relative;
+  z-index: 2; /* علشان تكون فوق الططبقة الشفافة و كمانعلشان المينيو لما تفتحها و يظهر اللينكات اللينكات دي تكون فوق الكلام علي الصورة ممكن نخليها اتنين و بدل ما ندي هنا زد انكس عالي بل ندي للكونتينر اللي في اللاندينج بيج علشان اي حاجة في الناف بار لما تظهر تبقي فوق الكل */
+  color: #fff;
+  display: flex;
+  padding: 10px;
+}
+.landing-page .header-area .logo {
+  padding: 15px;
+  width: 300px;
+  font-weight: bold;
+}
+.header-area .links-container {
+  width: 100%; /* كدا كدا الفليكس هيظبط الدنيا لانو هياخد المساحة اللي بقيالو من الاب لان العنصر الاول هياخد ثلثمية بكسل و المساحة الباقية كلها هيخدها اليو ال */
+  text-align: right;
+}
+.landing-page .header-area ul.links {
+  list-style: none;
+  padding-left: 0;
+  /* padding-right: 20px; */ /* مش محتاجينها علشان بقي عندنا كونتينر و احنا كدا بنبعدها من اليمينعن الكونتينر اللي بيحتويها و احنا مش عاوزين كدا */
+}
+.landing-page .header-area ul.links li {
+  display: inline-block;
+  margin-left: 10px;
+}
+.landing-page .header-area ul.links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.landing-page .header-area ul.links li a:hover,
+.landing-page .header-area ul.links li a.active {
+  /* في حالة لما تغمل هافر علي الائية او في حالة لو كانت واخدة كلاس اكتيف */
+  color: var(--main-color);
+}
+.landing-page .header-area .toggle-menu {
+  background: none;
+  border: none;
+  width: 40px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: none;
+}
+.landing-page .header-area .toggle-menu:focus {
+  outline: none;
+}
+.landing-page .header-area .toggle-menu span {
+  display: block;
+  background-color: #fff;
+  height: 4px;
+  margin-bottom: 4px;
+}
+.landing-page .introduction-text {
+  position: absolute;
+  left: 50%; /* عشلشان اخلي البوز بتاعو اللي علي الشممال في نص الشاشة */
+  top: 50%; /* عشلشان اخلي البوز بتاعة اللي فوق في نص الشاشة */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* لو معملتش الخاصية دي هلاقي العنصر البوز بتاعة اللي علي الشمال فوق متوسطن في نص الشاشية و انا مش عاوز كدا بل انا عاوز الكلام نفسو عوا اللي يتوسطن في نص الشاشة فهقولو حركهولي العنصر من مكانو الحالي لسالب خمسين في المية علي محور السينات و سالب خمسين في المية علي محور الصادات */
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 95%;
+}
+.landing-page .introduction-text h1 {
+  font-size: 34px;
+  margin: 0 0 12px;
+}
+.landing-page .introduction-text h1 span {
+  color: var(--main-color);
+  transition: 0.3s;
+}
+.landing-page .introduction-text p {
+  line-height: 1.6;
+  font-size: 20px;
+  margin: 0;
+}
+/* end landing page */
+
+/* start about us */
+.about-us {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.about-us .info-box {
+  flex: 1;
+  padding: 10px;
+}
+.about-us .info-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+}
+.about-us .info-box p {
+  line-height: 1.8;
+  color: #767676;
+  margin: 0;
+}
+.about-us .img-box {
+  flex: 1;
+  text-align: center; /* علشنان اخلي الايميج الابن يجي في النص */
+}
+.about-us .img-box img {
+  width: 400px; /* لو عاوز اخلي الصوررة تيجي في النص هحط الصورة في ديف و ادي للديف دا تيكست الين سينتر */
+}
+/* end about us */
+
+/* start skills */
+.skills {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+}
+.skills h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 50px;
+  text-align: center;
+}
+.skills .skill-box {
+  display: flex;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.skills .skill-box .skill-name {
+  font-weight: bold;
+  width: 140px;
+  text-align: center;
+  line-height: 30px;
+}
+.skills .skill-box .skill-progress {
+  height: 30px;
+  width: 100%; /* width: calc(100% - 110px); */ /* نقصنا مية و عشرة علشان حط السكيل نيم و العشرة الزيادة دي لزود الحنكشة */
+  background-color: #ddd;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden; /* عشلان الحواف اللي واخدة كيرف من علي الشمال تبان لان السبان هتغطي عليها فاحنا عاوزين نخفي البوز بتاع السبان دا */
+}
+.skills .skill-box .skill-progress span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--main-color);
+  transition: all 2s;
+}
+/* end skills */
+
+/* start gallery */
+.gallery {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.gallery h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  max-width: 0 0 50px;
+  text-align: center;
+}
+.gallery .images-box {
+  text-align: center;
+}
+.gallery .images-box img {
+  /* لو الصور كلها قد بعض هتلاقي التنسق بيرفيكت و اول ما تدي عرض هتلاقي كل حاجة تمام طيب لو الصور مش قد بعض هتظتر انك تعمل عرض و طول لكل الصور علشان يبقو قد بعض */
+  width: 300px;
+  padding: 3px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  margin: 5px;
+  cursor: pointer;
+}
+.popup-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.popup-box {
+  position: fixed; /* لازم تديلو بوزيشن فكسد مش معني ان الاب بوزيشن فكسد يبقي الابن كمان كدا */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1001;
+}
+.popup-box h3 {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 20px;
+  color: var(--main-color);
+}
+.popup-box img {
+  /* علشان متطلعش برا الاب */
+  max-width: 100%;
+  max-height: 100%;
+}
+.close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--main-color);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-family: arial, tahoma;
+  border-radius: 50%;
+}
+/* end gallery */
+
+/* start timeline */
+.timeline {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+}
+.timeline .timeline-content {
+  position: relative;
+  overflow: hidden;
+}
+.timeline .timeline-content::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+.timeline .timeline-content .year {
+  margin: 20px auto;
+  width: 50px;
+  background-color: var(--main-color);
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  padding: 2px 5px;
+  font-weight: bold;
+  /* text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; */
+}
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+  width: calc(50% - 25px);
+  margin-bottom: 40px;
+  position: relative;
+}
+.timeline .timeline-content .left {
+  float: left;
+}
+.timeline .timeline-content .right {
+  float: right;
+}
+.timeline .timeline-content .left::before,
+.timeline .timeline-content .right::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 3px solid var(--main-color);
+  position: absolute;
+  border-radius: 50%;
+  top: 20px;
+}
+.timeline .timeline-content .left::before {
+  right: -35px;
+}
+.timeline .timeline-content .right::before {
+  left: -35px;
+}
+.timeline .timeline-content .content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.timeline .timeline-content .content h3 {
+  font-weight: bold;
+  color: var(--main-color);
+  margin: 0 0 20px;
+}
+.timeline .timeline-content .content p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+.clearfix {
+  clear: both; /* علشان ميبقاش في حاجة جنب الديف و الديف ياخد السطر كلو لوحدة ومع انو واخد خمسين في المية فقط من الاب */
+}
+.timeline .timeline-content .left .content::before,
+.timeline .timeline-content .right .content::before {
+  content: '';
+  border-style: solid;
+  border-width: 10px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 20px;
+}
+.timeline .timeline-content .left .content::before {
+  border-color: transparent transparent transparent #fff;
+  right: -20px;
+}
+.timeline .timeline-content .right .content::before {
+  border-color: transparent #fff transparent transparent;
+  left: -20px;
+}
+/* end timeline */
+
+/* start features */
+.features {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.features h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 60px;
+  text-align: center;
+}
+.features .feat-box {
+  width: calc(100% / 3);
+  float: left;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.features .feat-box img {
+  width: 150px;
+}
+.features .feat-box h4 {
+  font-size: 22px;
+  margin: 15px 0 40px;
+  position: relative;
+}
+.features .feat-box h4::before {
+  content: '';
+  width: 40px;
+  height: 4px;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  margin-left: -20px;
+  /* or */
+  /* transform: translate(-50%, -50%); */
+}
+.features .feat-box p {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #706f6f;
+}
+/* end features */
+
+/* start testimonials */
+.testimonials {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden; /* علشان التيستيمونيال ممكن اديلو اوفر فلو هيدين او ادي كلير فيكس بعد العناصر علشان طول التيستيمونيال نفسو ياخدالمحتوي اللي جواه مش يبقا اقصر من المحتوي فممكن نعمل اوفر فلو هيدين و نسيل الديف دا او نعمل الديف دا و نديلو كلير فيكس */
+}
+.testimonials::before {
+  content: '';
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--main-color);
+}
+.testimonials::after {
+  content: '';
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: #333;
+}
+.testimonials h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 0 60px;
+  text-align: left;
+  position: relative; /* اديتو بوزيشن ريلاتف علشان بس اديلو زد اندكس و يسمع فية مش علشان اغير مكانة */
+  z-index: 2;
+}
+.testimonials .ts-box {
+  position: relative; /* اديتو بوزيشن ريلاتف علشان بس اديلو زد اندكس و يسمع فية مش علشان اغير مكانة */
+  z-index: 2;
+  width: calc(98% / 3); /* مقلتش مية في المية علي ثلاثة علشان المارجين فهشيل اتنين في المية لاني هدي للبوكس الاول و التاني مارجين واحدفي المية */
+  float: left;
+  background-color: #fff;
+  padding: 20px;
+}
+.testimonials .ts-box:not(:last-of-type) {
+  margin-right: 1%;
+}
+.testimonials .ts-box > p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+  font-size: 18px;
+  color: #707070;
+  font-style: italic;
+}
+.testimonials .ts-box .person-info {
+  overflow: hidden;
+}
+.testimonials .ts-box .person-info img {
+  float: left;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.testimonials .ts-box .person-info h4 {
+  margin: 14px 0 10px;
+}
+.testimonials .ts-box .person-info p {
+  color: #707070;
+  margin: 0;
+}
+/* end testimonials */
+
+/* start contact us */
+.contact {
+  min-height: 600px;
+  background-image: url('../images/contact.png');
+  background-size: cover;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+}
+.contact .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  /*or*/ /* background-color: rgb(255 255 255 / 60%); */
+}
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+.contact h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 60px;
+  text-align: center;
+}
+.contact form {
+  overflow: hidden;
+  max-width: 800px;
+  margin: auto;
+}
+.contact form .left {
+  float: left;
+  width: 49%;
+}
+.contact form .right {
+  float: right;
+  width: 49%;
+}
+.contact form input:not([type='submit']),
+.contact form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: rgba(218, 218, 218, 0.25);
+}
+.contact form textarea {
+  max-width: 100%;
+  height: 150px;
+  max-height: 250px;
+}
+.contact form input {
+  height: 40px;
+}
+.contact form input:not([type='submit']):focus,
+.contact form textarea:focus {
+  outline: none;
+  border: 2px solid var(--main-color);
+}
+.contact form input[type='submit'] {
+  padding: 10px;
+  width: 100%;
+  border-color: transparent;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+.contact form input[type='submit']:hover {
+  background-color: #2f2e2e;
+}
+.contact form textarea:focus::-webkit-input-placeholder,
+.contact form input:not([type='submit']):focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: 0.3s;
+}
+.contact form textarea:focus::-ms-input-placeholder,
+.contact form input:not([type='submit']):focus::-ms-input-placeholder {
+  opacity: 0;
+  transition: 0.3s;
+}
+/* end contact us */
+
+/* بداية التمويجة */
+.intro-svg {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  /* background-color: rgba(0, 0, 0, 0.5); */ /* لو عاوز اللون بتاعة مششفاف قو او لو عاوز تعمل لونين في بعض */
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: -1px;
+}
+.intro-svg path {
+  fill: var(--main-color);
+  opacity: 0.7;
+}
+/* نهاية التمويجة
+*/
+
+/* start footer */
+.footer {
+  background-color: #333;
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+}
+.footer i {
+  color: red;
+  font-size: 17px;
+  margin-left: 4px;
+}
+/* end footer */
+
+/* start grid system and media queries and breakpoints */
+@media (min-width: 576px) {
+  /* الميديا او الاجهزة من 576 ل 768 */
+  /* Small Devices => Landscape Phones */
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  /* الاجهزة من 768 لغاية 992 */
+  /* Medium Devices => Tablets */
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  /* كدا انا بقول لو العرض بتاع الديفايس دا من 992 لغاية 1200 */
+  /* Desktops */
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  /* كدا انا بقول لو الشاشة من 1200 لاكبر من كدا اعملي التالي */
+  /* Large Screens */
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 991px) {
+  /* كدا انا بخاطب الشاشات التابليت و الموبيل يعني اللي اصغر من 992 */
+  .landing-page .header-area ul.links {
+    display: none;
+  }
+  .landing-page .header-area ul.links.open {
+    display: block;
+    background-color: #000;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    top: 50px;
+    width: 92%; /* علشان ميجيش علي زرار الترس */
+    border-radius: 4px;
+    border: 2px solid #fff;
+  }
+  .landing-page .header-area ul.links.open li {
+    /*display: block; */ /* لو انا عاوز اظهرهم تحت بعض */
+    margin: 10px;
+  }
+  .landing-page .header-area ul.links.open li a {
+    color: var(--main-color);
+    font-weight: bold;
+  }
+  .landing-page .header-area .toggle-menu {
+    display: inline-block;
+    position: relative;
+  }
+  .landing-page .header-area .toggle-menu.menu-active::before {
+    /* عشلان السهم يبقي نازل منها مهما حركتها او الشاشة طبرت او صغرت فهيفضل السهم في مكانة الصحيح */
+    content: '';
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    bottom: -15px;
+    left: 10px;
+  }
+}
+@media (max-width: 575px) {
+  /* و ممكن لو عاوزين في الشاشات الاكبر من دي شوية نعمل فيها التانسيقات دي برضو هنخلي بدل 575 هنخليها 767 */
+  /* كدا انا بتكلم علي الموبايلات فقط مش التابليت ولا اي حاجة اكبر من الموبيل */
+  .landing-page .introduction-text h1 {
+    /* لازم تكتب نفس المسار اللي انت كاتبو فوق علشان لو كتبت مثلا انتروداكشون اتش وان فقط بدون لاندينج بيج مش هتسمع لان المسار دا غير اللي فوق */
+    font-size: 26px;
+  }
+  .about-us {
+    display: block; /* علشان في الشاشات دي انا مش عاوز ديسبلاي فليكس علشان انا عاوز هم يجو تخت بعض الصورة و الكلام علشان حجم الشاة صغير و لو خليت الفليكس هيجيبهم جنب بعض و انا مش عاوز كدا */
+    text-align: center;
+  }
+  .about-us .img-box img {
+    width: 75%;
+  }
+  .about-us .info-box {
+    padding: 0;
+  }
+  .skills .skill-box {
+    display: block;
+  }
+  .skills .skill-box .skill-name {
+    width: 90%;
+    margin: 0 auto 10px;
+  }
+  .popup-box {
+    width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .timeline .timeline-content .left,
+  .timeline .timeline-content .right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .timeline .timeline-content .left::before,
+  .timeline .timeline-content .right::before,
+  .timeline .timeline-content .left .content::before,
+  .timeline .timeline-content .right .content::before {
+    display: none;
+  }
+  .testimonials .ts-box {
+    width: 100%;
+    float: none;
+    margin-bottom: 15px;
+  }
+  .landing-page .header-area ul.links.open li {
+    display: block;
+    text-align: left;
+  }
+  /* .landing-page .header-area ul.links.open li {
+    margin: 0 3px 0;
+  }
+  .landing-page .header-area ul.links li a {
+    font-size: 10px;
+  } */
+  .testimonials h2 {
+    text-align: center;
+  }
+  .contact form .left,
+  .contact form .right {
+    float: none;
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .features .feat-box {
+    width: calc(100% / 2); /* لو عاوز تخلي اتنين جنب بعض في الشاشة لكن لو عاوز تخلي واحدة فقط في الشاشة هتديها الويدث مية في المية او تشيل الويدث و تديها دسبلاي بلوك و تدي الويدث مية في المية علشان مبخدش الويدث اللي فوق اللي معمول في الديزاين الاصلي */
+    /* display: block; */
+    /* width: 95%; */
+  }
+  .features .feat-box img {
+    width: 130px;
+  }
+  .features .feat-box h4 {
+    font-size: 18px;
+  }
+  .features .feat-box p {
+    font-size: 13px;
+  }
+
+  .testimonials .ts-box .person-info {
+    text-align: center;
+    overflow: visible; /* غلشان مش عاوز اخليها اوفر فلو هيدين لاني مش هخلي حاجة فيها فولت جواها في الشاشات دي */
+  }
+  .testimonials .ts-box > p {
+    text-align: center;
+  }
+  .testimonials .ts-box .person-info img {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .features .feat-box {
+    width: 100%;
+  }
+  .features .feat-box img {
+    width: 130px;
+  }
+  .features .feat-box h4 {
+    font-size: 18px;
+  }
+  .features .feat-box p {
+    font-size: 13px;
+  }
+}
+/* end grid system and media queries and breakpoints */
+
+.go-top {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  z-index: 1003;
+  background-color: var(--main-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  cursor: pointer;
+  border: 2px solid;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+/* start headeoom.js */
+.landing-page .header-area.headroom--pinned {
+  /* الحجات دي هتتنفز في حالة السكرول داون */
+  display: flex;
+  position: fixed;
+  left: 0;
+  background-color: #000000b8;
+  z-index: 9999;
+  width: 100%; /* لو عاوز اديلو العرض كامل */
+  padding-right: 3%;
+  padding-left: 3%;
+  /* لو عاوز اديلو ويدث معين و عاوزاسنترو في النص لو اديتو مارجين فقك مش كافي لانو هيكون مسمع فية الليفت اللي كان واخدة قبل كدا فلازم نديلو اي لفت تاني علشان يبقي دا اللي موجود و هندي للرايت نفس القيمة بتعت الليفت علشان لما اعمر مارجين اوتو يتوسط بالظبط */
+  /* width: 90%;
+  left: 1px;
+  right: 1px;
+  margin: auto; */
+  box-shadow: 0px 15px 15px #66666368;
+  transform: translateY(0%);
+  transition: transform 1s;
+}
+
+.landing-page .header-area.headroom--unpinned {
+  /* الحجات دي هتتنفز في حالة السكرول اب */
+  /* display: none; */
+  /* لو انت عاوزة في حالة لو نزل او طلع يعمل التنسيقات دي و لو نزل يفضل موجود و لو طلع يفضل موجود برضو*/
+  display: flex;
+  position: fixed;
+  left: 0;
+  background-color: #000000b8;
+  z-index: 9999;
+  width: 100%;
+  padding-right: 3%;
+  padding-left: 3%;
+  box-shadow: 0px 15px 15px #66666368;
+  transform: translateY(-150%);
+  transition: transform 1s;
+}
+/* .landing-page .header-area.headroom {
+  will-change: transform;
+  transition: transform 250ms linear;
+} */
+.landing-page .header-area.headroom--top {
+  /* الحجات دي هتتنفز في حالة لو كان فوق خالص لما يرجع فوق خالص عشان التنسيقات الاصلية اللي انا كنت عاملها ترجع تاني */
+  display: flex;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  padding: 10px;
+  box-shadow: none;
+}
+/* .headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
+} */
+/* end headeoom.js */

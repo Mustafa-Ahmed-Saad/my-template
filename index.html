@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spicial design</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" />
+  </head>
+  <body>
+    <!-- start setting box -->
+    <div class="setting-box">
+      <div class="toggle-setting">
+        <i class="fas fa-cog"></i>
+      </div>
+      <div class="settings-container">
+        <div class="options-box">
+          <h4>Color</h4>
+          <ul class="colors-list">
+            <li class="active" data-color="#24e344"></li>
+            <li data-color="#e91e63"></li>
+            <li data-color="#009688"></li>
+            <li data-color="#03a9f4"></li>
+            <li data-color="#4caf50"></li>
+          </ul>
+        </div>
+
+        <div class="options-box">
+          <h4>random background</h4>
+          <div class="random-backfrounds">
+            <span class="yes active" data-backfround="yes">yes</span>
+            <span class="no" data-backfround="no">no</span>
+          </div>
+        </div>
+        <div class="options-box">
+          <h4>show bullets</h4>
+          <div class="bullets-option">
+            <span class="yes active" data-display="show">yes</span>
+            <span class="no" data-display="hide">no</span>
+          </div>
+        </div>
+        <div class="options-box">
+          <h4>show the button to scroll top</h4>
+          <div class="buttom-top-option">
+            <span class="yes active" data-display="show">yes</span>
+            <span class="no" data-display="hide">no</span>
+          </div>
+        </div>
+        <button class="reset-options">Reset Options</button>
+      </div>
+    </div>
+    <!-- end setting box -->
+
+    <!-- start nav bullets -->
+    <div class="nav-bullets">
+      <div class="bullet" data-section=".about-us">
+        <!-- انا عامل الكاستم داتا اتربيوت دي و خلي باك قبل قيمتها انا حاطط دوت علشان لما استدعيها احطها في دوكيومينت دوت كويري سيليكتور فيجبلي الديف او السيكشن المناسب و بعدين استعمل ال السكرول انتو فيو و اكتب بداخلية البيهيفيور سموز فيوديني عند السكشن المطلوب -->
+        <div class="tooltip">About Us</div>
+      </div>
+      <div class="bullet" data-section=".skills">
+        <div class="tooltip">Our Skills</div>
+      </div>
+      <div class="bullet" data-section=".gallery">
+        <div class="tooltip">Our Gallery</div>
+      </div>
+      <div class="bullet" data-section=".timeline">
+        <div class="tooltip">Timeline</div>
+      </div>
+      <div class="bullet" data-section=".features">
+        <div class="tooltip">Our Skills</div>
+      </div>
+      <div class="bullet" data-section=".testimonials">
+        <div class="tooltip">Testimonials</div>
+      </div>
+    </div>
+    <!-- end nav bullets -->
+
+    <!-- start landing page -->
+    <div class="landing-page">
+      <!-- دي اللي هتكون عليها طبقة شفافية كدا علشان لما الكلام يبقي فوقيها يبقي واضح و الخلفية مش تاثؤ علي الكلام و تخلية مش واصح -->
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="header-area">
+          <div class="logo">spicial design</div>
+          <div class="links-container">
+            <ul class="links">
+              <li><a href="#" data-section=".about-us">About</a></li>
+              <li><a href="#" data-section=".skills">Skills</a></li>
+              <li><a href="#" data-section=".gallery">Gallery</a></li>
+              <li><a href="#" data-section=".timeline">Timeline</a></li>
+              <li><a href="#" data-section=".features">Features</a></li>
+              <li><a href="#" data-section=".testimonials">Testtimonials</a></li>
+            </ul>
+            <button class="toggle-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="introduction-text">
+        <h1>we are <span class="element"></span></h1>
+        <p>loren insum dolor sit amet consectetur adipisicing elit. repellendus odit nihil ullan nesciunt quiden iste</p>
+      </div>
+    </div>
+    <!-- end landing page -->
+
+    <!-- بداية التمويجة -->
+    <svg class="intro-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1440 126" xml:space="preserve">
+      <path class="main-path" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"></path>
+    </svg>
+    <!-- نهاية التمويجة -->
+
+    <!-- start about us -->
+    <div class="container">
+      <div class="about-us">
+        <div class="info-box">
+          <h2>About us</h2>
+          <p>
+            Loren Networks is a flexible engineering joint-stock private Bulgarian company which offers innovative system solutions in the field of Information and Communication Technology (ICT), Industry and Energy sectors. The corporate ICT and energy efficiency products are according to the
+            latest worldwide state – of – the art technologies and follow market demands
+          </p>
+        </div>
+        <div class="img-box">
+          <img src="images/8.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- end about us -->
+
+    <!-- start our skills -->
+    <div class="skills">
+      <div class="container">
+        <h2>our skills</h2>
+
+        <div class="skill-box">
+          <div class="skill-name">HTML</div>
+          <div class="skill-progress">
+            <span data-progress="99%"></span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-name">css</div>
+          <div class="skill-progress">
+            <span data-progress="95%"></span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-name">javaScript</div>
+          <div class="skill-progress">
+            <span data-progress="92%"></span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-name">python</div>
+          <div class="skill-progress">
+            <span data-progress="65%"></span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-name">noSql</div>
+          <div class="skill-progress">
+            <span data-progress="70%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end our skills -->
+
+    <!-- start gallery -->
+    <div class="gallery">
+      <div class="container">
+        <h2>our gallery</h2>
+        <div class="images-box">
+          <img src="images/15.jfif" alt="image one" />
+          <img src="images/14.jfif" alt="image one" />
+          <img src="images/13.png" alt="image one" />
+          <img src="images/12.png" alt="image two" />
+          <img src="images/11.jpg" alt="image three" />
+          <img src="images/10.jfif" alt="image four" />
+          <img src="images/9.png" alt="image five" />
+          <img src="images/1.jpg" alt="image six" />
+          <img src="images/7.jfif" alt="image seven" />
+          <img src="images/6.jfif" alt="" />
+          <img src="images/5.jfif" alt="" />
+          <img src="images/4.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- end gallery -->
+
+    <!-- start timeline -->
+    <div class="timeline">
+      <div class="container">
+        <div class="timeline-content">
+          <div class="year">2020</div>
+          <div class="left">
+            <div class="content">
+              <h3>testing heading</h3>
+              <p>
+                Loren Networks is a flexible engineering joint-stock private Bulgarian company which offers innovative system solutions in the field of Information and Communication Technology (ICT), Industry and Energy sectors. The corporate ICT and energy efficiency products are according to the
+                latest worldwide state – of – the art technologies and follow market demands
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- علشان يعمل كلير و ميبقاش في حاجة جنب الديف اللي قبلو علي اليمين -->
+          <div class="right">
+            <div class="content">
+              <h3>testing heading</h3>
+              <p>
+                Loren Networks is a flexible engineering joint-stock private Bulgarian company which offers innovative system solutions in the field of Information and Communication Technology (ICT), Industry and Energy sectors. The corporate ICT and energy efficiency products are according to the
+                latest worldwide state – of – the art technologies and follow market demands
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="year">2021</div>
+          <div class="left">
+            <div class="content">
+              <h3>testing heading</h3>
+              <p>
+                Loren Networks is a flexible engineering joint-stock private Bulgarian company which offers innovative system solutions in the field of Information and Communication Technology (ICT), Industry and Energy sectors. The corporate ICT and energy efficiency products are according to the
+                latest worldwide state – of – the art technologies and follow market demands
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="left">
+            <div class="content">
+              <h3>testing heading</h3>
+              <p>
+                Loren Networks is a flexible engineering joint-stock private Bulgarian company which offers innovative system solutions in the field of Information and Communication Technology (ICT), Industry and Energy sectors. The corporate ICT and energy efficiency products are according to the
+                latest worldwide state – of – the art technologies and follow market demands
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end timeline -->
+
+    <!-- start features -->
+    <div class="features">
+      <h2>our features</h2>
+      <div class="container">
+        <div class="feat-box">
+          <img src="/images/Icon_01.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_02.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_03.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_04.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_05.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_06.png" alt="" />
+          <h4>development</h4>
+          <p>we are professional marketeers, we will do anything you imagine in no time</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- end features -->
+
+    <!-- start testimonials -->
+    <div class="testimonials">
+      <div class="container">
+        <h2>testimonials</h2>
+        <div class="ts-box">
+          <p>iam verry happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+          <div class="person-info">
+            <img src="https://placehold.it/80/DDD" alt="" />
+            <h4>Omar Ashraf</h4>
+            <p>CEO At Company</p>
+          </div>
+        </div>
+        <div class="ts-box">
+          <p>iam verry happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+          <div class="person-info">
+            <img src="https://placehold.it/80/eee" alt="" />
+            <h4>Ahmed Elsayed</h4>
+            <p>CEO At Company</p>
+          </div>
+        </div>
+        <div class="ts-box">
+          <p>iam verry happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+          <div class="person-info">
+            <img src="https://placehold.it/80/aaa" alt="" />
+            <h4>abdelmonim</h4>
+            <p>CEO At Company</p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- علشان التيستيمونيال ممكن اديلو اوفر فلو هيدين او ادي كلير فيكس بعد العناصر علشان طول التيستيمونيال نفسو ياخدالمحتوي اللي جواه مش يبقا اقصر من المحتوي فممكن نعمل اوفر فلو هيدين و نسيل الديف دا او نعمل الديف دا و نديلو كلير فيكس -->
+    </div>
+    <!-- end testimonials -->
+
+    <!-- start contact us -->
+    <div class="contact">
+      <div class="overlay"></div>
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form action="">
+          <div class="left">
+            <input type="text" placeholder="your name" name="username" />
+            <input type="text" placeholder="your phone" name="phone" />
+            <input type="email" placeholder="your email" name="email" />
+            <input type="text" placeholder="subject" name="subject" />
+          </div>
+          <div class="right">
+            <textarea name="message" placeholder="your message"></textarea>
+            <input type="submit" value="send" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- end contact us -->
+
+    <!-- start footer -->
+    <div class="footer">
+      Created With love By Mustafa Ahmed Saad
+      <i class="fas fa-heart"></i>
+    </div>
+    <!-- end footer -->
+
+    <!-- start arrow to top -->
+    <div class="go-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+    <!-- end arrow to top -->
+
+    <!-- start headroom js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js" integrity="sha512-9UsrKTYzS9smDm2E58MLs0ACtOki+UC4bBq4iK5wi7lJycwqcaiHxr1bdEsIVoK0l5STEzLUdYyDdFQ5OEjczw==" crossorigin="anonymous"></script>
+    <!-- end headroom js -->
+
+    <!-- start typed js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous"></script> -->
+    <!-- end typed js -->
+
+    <script src="sweetalret/sweetalert.js"></script>
+    <script src="js/master.js"></script>
+  </body>
+</html>
